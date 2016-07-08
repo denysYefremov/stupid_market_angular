@@ -4,14 +4,6 @@ define(['../setting/app-components'], function(components) {
     function tableController() {
         var ctrl = this;
 
-        ctrl.shopItems = [
-            { name: "Fish", price: 20.5, count: 10 },
-            { name: "Meat",  price: 80.2, count: 3 },
-            { name: "Beam", price: 10, count: 5 },
-            { name: "Popcorn", price: 2.25, count: 11 },
-            { name: "Water", price: 0.15, count: 100 }
-        ];
-
         ctrl.sortBy = "name";
         ctrl.reverse = false;
 
