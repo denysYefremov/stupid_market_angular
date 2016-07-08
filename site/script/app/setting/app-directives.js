@@ -1,7 +1,7 @@
 define([
     'angular'
 ], function(angular) {
-    'use strict'
+    'use strict';
 
     return angular.module('app.directives', []);
 });

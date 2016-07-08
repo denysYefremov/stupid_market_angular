@@ -1,0 +1,36 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th><input type="text" class="form-control" placeholder="filter by name" ng-model="ctrl.name" /></th>
+            <th><input type="text" class="form-control" placeholder="filter by price" ng-model="ctrl.price" /></th>
+            <th><input type="text" class="form-control" placeholder="filter by count" ng-model="ctrl.count" /></th>
+        </tr>
+        <tr>
+            <th role="button" ng-click="$ctrl.sort('name')">
+                <span>Name</span>
+                <i class="fa fa-fw"
+                   ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
+                   ng-show="$ctrl.sortBy === 'name'"></i>
+            </th>
+            <th role="button" ng-click="$ctrl.sort('price')">
+                <span>Price</span>
+                <i class="fa fa-fw"
+                   ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
+                   ng-show="$ctrl.sortBy === 'price'"></i>
+            </th>
+            <th role="button" ng-click="$ctrl.sort('count')">
+                <span>Count</span>
+                <i class="fa fa-fw"
+                   ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
+                   ng-show="$ctrl.sortBy === 'count'"></i>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.shopItems | orderBy:$ctrl.sortBy:$ctrl.reverse | filter:ctrl">
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.count}}</td>
+        </tr>
+    </tbody>
+</table>

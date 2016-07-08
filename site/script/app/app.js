@@ -6,10 +6,10 @@ define([
     'use strict';
     return angular.module('app', [
         /*'app.services',
-        'app.filters',
-        'app.directives',*/
-        'app.controllers',
-        'ngRoute',
-        'gridster'
+         'app.filters',
+         'app.directives',
+        'app.controllers',*/
+        'app.components',
+        'ngRoute'
     ]);
 });

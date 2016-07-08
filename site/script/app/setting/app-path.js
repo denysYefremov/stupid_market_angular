@@ -1,7 +1,9 @@
 define([
     /* Controllers */
-    '../main/main-controller',
-    '../about/about-controller'
+
+    /* Components */
+    '../table/table-component'
+
     /* Directives */
 
     /* Services */

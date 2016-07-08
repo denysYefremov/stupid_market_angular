@@ -1,36 +1,27 @@
 {
-  "name": "pt-prod",
+  "name": "Stupid_Market",
   "description": "",
   "main": "index.html",
   "authors": [
-    "needle <xznarz@gmail.com>"
+    "Denys"
   ],
-  "license": "MIT",
-  "moduleType": [],
+  "license": "ISC",
   "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "vendors",
     "test",
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.0",
-    "angular-animate": "^1.5.0",
-    "angular-cookies": "^1.5.0",
-    "angular-resource": "^1.5.0",
-    "angular-route": "^1.5.0",
-    "angular-sanitize": "^1.5.0",
-    "angular-touch": "^1.5.0",
+    "angular": "^1.5.7",
+    "angular-cookies": "^1.5.7",
+    "angular-route": "^1.5.7",
     "bootstrap": "^3.3.6",
-    "requirejs": "^2.1.22",
-    "angular-gridster": "^0.13.5",
-    "bootstrap-sass": "^3.3.6",
-    "font-awesome": "^4.5.0"
-  },
-  "devDependencies": {
-    "angular-mocks": "^1.5.0"
+    "jquery": "^3.0.0",
+    "requirejs": "^2.2.0",
+    "font-awesome": "^4.6.3",
+    "lodash": "^4.13.1"
   }
 }
