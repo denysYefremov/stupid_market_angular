@@ -1,5 +1,5 @@
 <tbody>
-    <tr ng-repeat="item in $ctrl.shopItems | orderBy:$ctrl.sortBy:$ctrl.reverse | filter:ctrl">
+    <tr ng-repeat="item in $ctrl.shopItems | orderBy:$ctrl.sortBy:$ctrl.reverse">
         <td>{{item.name}}</td>
         <td>{{item.price}}</td>
         <td>{{item.count}}</td>

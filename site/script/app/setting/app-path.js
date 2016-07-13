@@ -2,7 +2,9 @@ define([
     /* Controllers */
 
     /* Components */
-    '../table/table-component'
+    '../table/table-component',
+    '../tableBody/tableBody-component',
+    '../tableHeader/tableHeader-component'
 
     /* Directives */
 
