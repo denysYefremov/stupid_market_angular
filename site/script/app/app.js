@@ -5,10 +5,11 @@ define([
 ], function(angular) {
     'use strict';
     return angular.module('app', [
-        /*'app.services',
-         'app.filters',
+        /*'app.filters',
          'app.directives',
         'app.controllers',*/
+        'app.services',
+        'app.constants',
         'app.components',
         'ngRoute'
     ]);

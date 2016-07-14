@@ -1,0 +1,32 @@
+.container {
+    padding-top: 30px;
+}
+
+.filter {
+    padding: 5px 0;
+    border-bottom: 1px solid #0f0f0f;
+}
+
+.filter div {
+    border-right: 1px solid #e3e3e3;
+}
+
+.filter div:last-child {
+    border-right: none;
+}
+
+.header {
+    padding: 5px 0;
+    border-bottom: 1px solid #0f0f0f;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3c3c3c;
+}
+
+.body {
+    padding: 5px 0;
+    border-bottom: 1px solid #e3e3e3;
+    font-size: 14px;
+    color: #3c3c3c;
+}
+

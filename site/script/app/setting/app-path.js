@@ -1,4 +1,12 @@
 define([
+    /* Services */
+    '../table/table-service',
+
+    /* Filters */
+
+    /* Constants */
+    '../tableHeader/tableHeader-constant',
+
     /* Controllers */
 
     /* Components */
@@ -7,7 +15,4 @@ define([
     '../tableHeader/tableHeader-component'
 
     /* Directives */
-
-    /* Services */
-    /* Filters */
 ], function(){});

@@ -1,7 +1,5 @@
-<tbody>
-    <tr ng-repeat="item in $ctrl.shopItems | orderBy:$ctrl.sortBy:$ctrl.reverse">
-        <td>{{item.name}}</td>
-        <td>{{item.price}}</td>
-        <td>{{item.count}}</td>
-    </tr>
-</tbody>
+<div class="row body" ng-repeat="item in $ctrl.items">
+    <div class="col-md-4">{{item.name}}</div>
+    <div class="col-md-4">{{item.price}}</div>
+    <div class="col-md-4">{{item.count}}</div>
+</div>

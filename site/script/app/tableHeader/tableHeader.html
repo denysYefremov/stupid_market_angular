@@ -1,27 +1,31 @@
-<thead>
-    <tr>
-        <th><input type="text" class="form-control" placeholder="filter by name" ng-model="ctrl.name" /></th>
-        <th><input type="text" class="form-control" placeholder="filter by price" ng-model="ctrl.price" /></th>
-        <th><input type="text" class="form-control" placeholder="filter by count" ng-model="ctrl.count" /></th>
-    </tr>
-    <tr>
-        <th role="button" ng-click="$ctrl.sort('name')">
-            <span>Name</span>
-            <i class="fa fa-fw"
-               ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
-               ng-show="$ctrl.sortBy === 'name'"></i>
-        </th>
-        <th role="button" ng-click="$ctrl.sort('price')">
-            <span>Price</span>
-            <i class="fa fa-fw"
-               ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
-               ng-show="$ctrl.sortBy === 'price'"></i>
-        </th>
-        <th role="button" ng-click="$ctrl.sort('count')">
-            <span>Count</span>
-            <i class="fa fa-fw"
-               ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
-               ng-show="$ctrl.sortBy === 'count'"></i>
-        </th>
-    </tr>
-</thead>
+<div class="row filter">
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="filter by name" ng-model="ctrl.name" />
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="filter by price" ng-model="ctrl.price" />
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="filter by count" ng-model="ctrl.count" />
+    </div>
+</div>
+<div class="row header">
+    <div class="col-md-4" role="button" ng-click="$ctrl.sort('name')">
+        <span>Name</span>
+        <i class="fa fa-fw"
+           ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
+           ng-show="$ctrl.sortBy === 'name'"></i>
+    </div>
+    <div class="col-md-4" role="button" ng-click="$ctrl.sort('price')">
+        <span>Price</span>
+        <i class="fa fa-fw"
+           ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
+           ng-show="$ctrl.sortBy === 'price'"></i>
+    </div>
+    <div class="col-md-4" role="button" ng-click="$ctrl.sort('count')">
+        <span>Count</span>
+        <i class="fa fa-fw"
+           ng-class="{'fa-sort-desc':!$ctrl.reverse, 'fa-sort-asc':$ctrl.reverse}"
+           ng-show="$ctrl.sortBy === 'count'"></i>
+    </div>
+</div>
