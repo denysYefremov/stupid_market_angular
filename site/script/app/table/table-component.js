@@ -29,9 +29,23 @@ define([
         };
 
         function useFilter() {
+            ctrl.shopItems = apiPart.get();
 
-            ctrl.shopItems = _.filter(ctrl.shopItems);
-
+            if (!_.isUndefined(ctrl.filterObj.name) && !_.isNull(ctrl.filterObj.name)) {
+                ctrl.shopItems = _.filter(ctrl.shopItems, function (item) {
+                    return  item.name.indexOf(ctrl.filterObj.name) != -1;
+                });
+            }
+            if (!_.isUndefined(ctrl.filterObj.price) && !_.isNull(ctrl.filterObj.price) && !_.isNaN(parseFloat(ctrl.filterObj.price))) {
+                ctrl.shopItems = _.filter(ctrl.shopItems, function (item) {
+                    return parseFloat(item.price) === parseFloat(ctrl.filterObj.price);
+                });
+            }
+            if (!_.isUndefined(ctrl.filterObj.count) && !_.isNull(ctrl.filterObj.count) && !_.isNaN(parseInt(ctrl.filterObj.count))) {
+                ctrl.shopItems = _.filter(ctrl.shopItems, function (item) {
+                    return item.count === parseInt(ctrl.filterObj.count);
+                });
+            }
         }
     }
 
