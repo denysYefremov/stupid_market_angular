@@ -1,10 +1,20 @@
-define(['../setting/app-components'], function(components) {
+define(['../setting/app-components', 'lodash'], function(components, _) {
     'use strict';
 
     tableHeaderController.$inject = ['tableSettings'];
 
     function tableHeaderController(tableSettings) {
         var ctrl = this;
+
+        this.$onInit = function() {
+            this.model.$render = function() {
+                var obj = ctrl.model.$viewValue;
+
+                ctrl.name = obj.name;
+                ctrl.price = obj.price;
+                ctrl.count = obj.count;
+            };
+        };
 
         ctrl.reverse = false;
         ctrl.sortBy = tableSettings.sortBy;
@@ -20,19 +30,52 @@ define(['../setting/app-components'], function(components) {
             ctrl.sortBy = sortBy;
         };
 
-        ctrl.filter = function(text) {
-            ctrl.filteringBy(text);
+        ctrl.sortingBy(ctrl.sortBy, order);
+
+        ctrl.setName = function(setter) {
+            if (!_.isUndefined(setter)) {
+                ctrl.name = setter;
+                setValue();
+            } else {
+                return ctrl.name;
+            }
         };
 
-        ctrl.sortingBy(ctrl.sortBy, order);
+        ctrl.setPrice = function(setter) {
+            if (!_.isUndefined(setter)) {
+                ctrl.price = setter;
+                setValue();
+            } else {
+                return ctrl.price;
+            }
+        };
+
+        ctrl.setCount = function(setter) {
+            if (!_.isUndefined(setter)) {
+                ctrl.count = setter;
+                setValue();
+            } else {
+                return ctrl.count;
+            }
+        };
+
+        function setValue() {
+            ctrl.model.$setViewValue({
+                name: ctrl.name,
+                price: ctrl.price,
+                count: ctrl.count
+            });
+        }
     }
 
     components.component('tableHeader', {
         templateUrl: './script/app/tableHeader/tableHeader.html',
+        require: {
+            model: 'ngModel'
+        },
         controller: tableHeaderController,
         bindings: {
-            sortingBy: '<',
-            filteringBy: '<'
+            sortingBy: '<'
         }
     });
 });

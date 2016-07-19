@@ -1,12 +1,24 @@
 <div class="row filter">
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="filter by name" ng-model="ctrl.name" />
+        <input type="text"
+               class="form-control"
+               placeholder="filter by name"
+               ng-model="$ctrl.setName"
+               ng-model-options="{ getterSetter: true }" />
     </div>
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="filter by price" ng-model="ctrl.price" />
+        <input type="text"
+               class="form-control"
+               placeholder="filter by price"
+               ng-model="$ctrl.setPrice"
+               ng-model-options="{ getterSetter: true }" />
     </div>
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="filter by count" ng-model="ctrl.count" />
+        <input type="text"
+               class="form-control"
+               placeholder="filter by count"
+               ng-model="$ctrl.setCount"
+               ng-model-options="{ getterSetter: true }" />
     </div>
 </div>
 <div class="row header">

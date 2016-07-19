@@ -9,7 +9,7 @@ define([
         var ctrl = this;
 
         ctrl.shopItems = apiPart.get();
-        ctrl.filteObj = {
+        ctrl.filterObj = {
             name: null,
             price: null,
             count: null
@@ -19,7 +19,20 @@ define([
             ctrl.shopItems = _.orderBy(ctrl.shopItems, [sortBy], [order]);
         };
 
-        ctrl.filter = function(text) {}
+        ctrl.filter = function(setter) {
+            if (!_.isUndefined(setter)) {
+                ctrl.filterObj = setter;
+                useFilter();
+            } else {
+                return ctrl.filterObj;
+            }
+        };
+
+        function useFilter() {
+
+            ctrl.shopItems = _.filter(ctrl.shopItems);
+
+        }
     }
 
     components.component('shopTable', {

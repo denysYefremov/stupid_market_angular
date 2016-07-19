@@ -1,4 +1,8 @@
 <div class="container">
-    <table-header sorting-by="$ctrl.sort"></table-header>
+    <table-header
+            sorting-by="$ctrl.sort"
+            ng-model="$ctrl.filter"
+            ng-model-options="{getterSetter: true}"
+    ></table-header>
     <table-body items="$ctrl.shopItems"></table-body>
 </div>
