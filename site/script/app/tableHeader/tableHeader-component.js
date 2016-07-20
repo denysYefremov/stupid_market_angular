@@ -4,15 +4,16 @@ define(['../setting/app-components', 'lodash'], function(components, _) {
     tableHeaderController.$inject = ['tableSettings'];
 
     function tableHeaderController(tableSettings) {
-        var ctrl = this;
+        var ctrl = this,
+            _name, _price, _count;
 
         this.$onInit = function() {
             this.model.$render = function() {
                 var obj = ctrl.model.$viewValue;
 
-                ctrl.name = obj.name;
-                ctrl.price = obj.price;
-                ctrl.count = obj.count;
+                _name = obj.name;
+                _price = obj.price;
+                _count = obj.count;
             };
         };
 
@@ -32,38 +33,38 @@ define(['../setting/app-components', 'lodash'], function(components, _) {
 
         ctrl.sortingBy(ctrl.sortBy, order);
 
-        ctrl.setName = function(setter) {
+        ctrl.name = function(setter) {
             if (!_.isUndefined(setter)) {
-                ctrl.name = setter;
+                _name = setter;
                 setValue();
             } else {
-                return ctrl.name;
+                return _name;
             }
         };
 
-        ctrl.setPrice = function(setter) {
+        ctrl.price = function(setter) {
             if (!_.isUndefined(setter)) {
-                ctrl.price = setter;
+                _price = setter;
                 setValue();
             } else {
-                return ctrl.price;
+                return _price;
             }
         };
 
-        ctrl.setCount = function(setter) {
+        ctrl.count = function(setter) {
             if (!_.isUndefined(setter)) {
-                ctrl.count = setter;
+                _count = setter;
                 setValue();
             } else {
-                return ctrl.count;
+                return _count;
             }
         };
 
         function setValue() {
             ctrl.model.$setViewValue({
-                name: ctrl.name,
-                price: ctrl.price,
-                count: ctrl.count
+                name: _name,
+                price: _price,
+                count: _count
             });
         }
     }

@@ -3,21 +3,23 @@
         <input type="text"
                class="form-control"
                placeholder="filter by name"
-               ng-model="$ctrl.setName"
+               ng-model="$ctrl.name"
+               required
                ng-model-options="{ getterSetter: true }" />
     </div>
     <div class="col-md-4">
         <input type="text"
                class="form-control"
                placeholder="filter by price"
-               ng-model="$ctrl.setPrice"
+               ng-model="$ctrl.price"
+               required
                ng-model-options="{ getterSetter: true }" />
     </div>
     <div class="col-md-4">
         <input type="text"
                class="form-control"
                placeholder="filter by count"
-               ng-model="$ctrl.setCount"
+               ng-model="$ctrl.count"
                ng-model-options="{ getterSetter: true }" />
     </div>
 </div>
@@ -41,3 +43,7 @@
            ng-show="$ctrl.sortBy === 'count'"></i>
     </div>
 </div>
+
+this.model.$formatters.push(function (viewValue) {
+    return viewValue.a;
+});

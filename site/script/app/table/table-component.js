@@ -1,6 +1,6 @@
 define([
     '../setting/app-components',
-    'lodash'], function(components, _) {
+    'lodash'], function (components, _) {
     'use strict';
 
     tableController.$inject = ['apiPart'];
@@ -9,7 +9,7 @@ define([
         var ctrl = this;
 
         ctrl.shopItems = apiPart.get();
-        ctrl.sortedItems = ctrl.shopItems;
+        ctrl.sortedItems = _.extend([], ctrl.shopItems);
 
         ctrl.filterObj = {
             name: null,
@@ -17,12 +17,12 @@ define([
             count: null
         };
 
-        ctrl.sort = function(sortBy, order) {
+        ctrl.sort = function (sortBy, order) {
             ctrl.shopItems = _.orderBy(ctrl.shopItems, [sortBy], [order]);
             ctrl.sortedItems = _.orderBy(ctrl.sortedItems, [sortBy], [order]);
         };
 
-        ctrl.filter = function(setter) {
+        ctrl.filter = function (setter) {
             if (!_.isUndefined(setter)) {
                 ctrl.filterObj = setter;
                 useFilter();
@@ -32,21 +32,35 @@ define([
         };
 
         function useFilter() {
-            if (!_.isUndefined(ctrl.filterObj.name) && !_.isNull(ctrl.filterObj.name)) {
-                ctrl.shopItems = _.filter(ctrl.sortedItems, function (item) {
+            var predicates = [];
+
+            if (!!ctrl.filterObj.name) {
+                predicates.push(function (item) {
                     return item.name.indexOf(ctrl.filterObj.name) != -1;
                 });
             }
             if (!_.isUndefined(ctrl.filterObj.price) && !_.isNull(ctrl.filterObj.price) && !_.isNaN(parseFloat(ctrl.filterObj.price))) {
-                ctrl.shopItems = _.filter(ctrl.sortedItems, function (item) {
+                predicates.push(function (item) {
                     return parseFloat(item.price) === parseFloat(ctrl.filterObj.price);
                 });
             }
             if (!_.isUndefined(ctrl.filterObj.count) && !_.isNull(ctrl.filterObj.count) && !_.isNaN(parseInt(ctrl.filterObj.count))) {
-                ctrl.shopItems = _.filter(ctrl.sortedItems, function (item) {
+                predicates.push(function (item) {
                     return parseInt(item.count) === parseInt(ctrl.filterObj.count);
                 });
             }
+
+            ctrl.sortedItems = filterItems(ctrl.shopItems, predicates);
+        }
+
+        function filterItems(items, predicates) {
+            var newItems = _.extend([], items);
+
+            _.each(predicates, function (predicate) {
+                newItems = _.filter(newItems, predicate);
+            });
+
+            return newItems;
         }
     }
 
